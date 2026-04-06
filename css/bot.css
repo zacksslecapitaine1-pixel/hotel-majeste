@@ -1,0 +1,41 @@
+/* ============================================
+   HÔTEL RÉSIDENCE MAJESTÉ — bot.css
+   Chatbot reservation — mobile-first fixes
+   ============================================ */
+
+/* Ensure reservation page fills viewport correctly on all devices */
+@media (max-width: 900px) {
+  .reservation-page {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+  .res-info-panel {
+    position: relative !important;
+    height: auto !important;
+    top: 0 !important;
+    padding: 28px 20px !important;
+  }
+  .res-bot-panel {
+    position: relative !important;
+    height: 75vh !important;
+    min-height: 520px;
+  }
+}
+
+@media (max-width: 480px) {
+  .res-info-panel { padding: 20px 16px !important; }
+  .res-info-title  { font-size: 1.5rem !important; }
+  .res-bot-panel   { height: 72vh !important; min-height: 480px; }
+  .bot-messages    { padding: 12px 10px !important; gap: 8px !important; }
+  .bot-input-area  { padding: 10px 10px !important; }
+  .msg-bubble      { font-size: 0.82rem !important; padding: 9px 12px !important; }
+  .choice-btn      { font-size: 0.78rem !important; padding: 8px 12px !important; }
+  .summary-card    { font-size: 0.78rem !important; padding: 14px !important; }
+  .whatsapp-confirm-btn { font-size: 0.875rem !important; padding: 12px !important; }
+}
+
+/* Fix choice buttons wrapping nicely on mobile */
+@media (max-width: 380px) {
+  .choices-wrap    { gap: 6px !important; }
+  .choice-btn      { flex: 1 1 calc(50% - 6px); text-align: center; justify-content: center; }
+}

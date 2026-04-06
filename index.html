@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hôtel Résidence Majesté — Chambres climatisées et ventilées, restaurant, bar et salle d'événements à Adidogomé, Lomé. Réservation 24h/24." />
+  <meta name="keywords" content="hotel lomé, résidence majesté, chambre adidogomé, bar restaurant togo, salle événement lomé" />
+  <meta name="author" content="Dev.zak" />
+  <meta property="og:title" content="Hôtel Résidence Majesté — Lomé, Togo" />
+  <meta property="og:description" content="Confort, chaleur et élégance au cœur d'Adidogomé." />
+  <meta property="og:image" content="images/facade.png" />
+  <meta property="og:type" content="website" />
+  <title>Hôtel Résidence Majesté — Lomé, Togo</title>
+  <link rel="icon" type="image/png" href="images/logo.jpg" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+</head>
+<body>
+
+<!-- PAGE LOADER -->
+<div id="page-loader">
+  <img src="images/logo.jpg" alt="Majesté" class="loader-logo" />
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress"></div>
+
+<!-- PAGE TRANSITION -->
+<div class="page-transition"></div>
+
+<!-- ══ NAVIGATION ══════════════════════════ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <!-- Logo -->
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.jpg" alt="Logo Hôtel Résidence Majesté" />
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Majesté</span>
+        <span class="nav-logo-sub">Hôtel · Résidence</span>
+      </div>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+      <li><a href="chambres.html" data-i18n="nav_rooms">Chambres</a></li>
+      <li><a href="restaurant.html" data-i18n="nav_restaurant">Restaurant & Bar</a></li>
+      <li><a href="evenements.html" data-i18n="nav_events">Salle & Événements</a></li>
+      <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+      <li><a href="reservation.html" class="nav-reserve" data-i18n="nav_reserve_btn">Réserver</a></li>
+    </ul>
+
+    <!-- Lang + Hamburger -->
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="nav-mobile">
+  <a href="index.html" data-i18n="nav_home">Accueil</a>
+  <a href="chambres.html" data-i18n="nav_rooms">Chambres</a>
+  <a href="restaurant.html" data-i18n="nav_restaurant">Restaurant & Bar</a>
+  <a href="evenements.html" data-i18n="nav_events">Salle & Événements</a>
+  <a href="contact.html" data-i18n="nav_contact">Contact</a>
+  <a href="reservation.html" class="nav-reserve-mobile" data-i18n="nav_reserve_btn">Réserver</a>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+</div>
+
+<!-- ══ HERO ════════════════════════════════ -->
+<section class="hero">
+  <canvas id="hero-canvas" class="hero-canvas"></canvas>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content container">
+    <!-- Tag -->
+    <div class="hero-tag">
+      <span class="hero-tag-dot"></span>
+      <span data-i18n="hero_tag">Ouvert 24h/24 · 7j/7</span>
+    </div>
+
+    <!-- Title -->
+    <h1 class="hero-title">
+      <span data-i18n="hero_title1">Séjournez autrement.</span>
+      <span class="hero-title-script" data-i18n="hero_title2">Vivez Majesté.</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="hero-subtitle" data-i18n="hero_subtitle">
+      Confort, chaleur et élégance — au cœur d'Adidogomé, Lomé
+    </p>
+
+    <!-- CTA -->
+    <div class="hero-cta">
+      <a href="reservation.html" class="btn btn-yellow btn-lg" data-i18n="hero_btn_book" style="flex:1;max-width:260px;justify-content:center;">
+        Réserver une chambre
+      </a>
+      <a href="chambres.html" class="btn btn-white btn-lg" data-i18n="hero_btn_tour" style="flex:1;max-width:260px;justify-content:center;">
+        Découvrir l'hôtel
+      </a>
+    </div>
+
+    <!-- Stats -->
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">10+</div>
+        <div class="hero-stat-label" data-i18n="hero_stat_rooms">Chambres</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">24/7</div>
+        <div class="hero-stat-label" data-i18n="hero_stat_open">Ouverture</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">100</div>
+        <div class="hero-stat-label" data-i18n="hero_stat_cap">Places salle</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="hero-stat-label" data-i18n="hero_stat_park">Parking</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ══ QUICK INFO BAR ═══════════════════════ -->
+<div class="quick-bar">
+  <div class="quick-bar-inner container">
+    <div class="quick-item">
+      <div class="quick-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="quick-item-text">
+        <strong data-i18n="quick_checkin">Check-in / Check-out</strong>
+        <span data-i18n="quick_checkin_v">24h/24 · 7j/7</span>
+      </div>
+    </div>
+    <div class="quick-item">
+      <div class="quick-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.61a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
+      </div>
+      <div class="quick-item-text">
+        <strong data-i18n="quick_phone">Téléphone</strong>
+        <span>+228 91 00 36 32</span>
+      </div>
+    </div>
+    <div class="quick-item">
+      <div class="quick-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="quick-item-text">
+        <strong data-i18n="quick_loc">Adresse</strong>
+        <span data-i18n="quick_loc_v">Adidogomé Ségbé Akato</span>
+      </div>
+    </div>
+    <div class="quick-item">
+      <div class="quick-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+      </div>
+      <div class="quick-item-text">
+        <strong data-i18n="quick_wifi">WiFi Gratuit</strong>
+        <span data-i18n="quick_wifi_v">Dans toutes les chambres</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FEATURES ═════════════════════════════ -->
+<section class="section" style="background: var(--cream);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag tag-blue" data-i18n="feat_title">Tout ce dont vous avez besoin</span>
+      <h2 class="section-title" data-i18n="feat_title">Tout ce dont vous avez besoin</h2>
+      <p class="section-desc" data-i18n="feat_desc">Un établissement complet pour votre confort et vos événements</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-in fade-in-delay-1">
+        <div class="feature-icon-wrap icon-blue">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1565C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22V12a10 10 0 0 1 20 0v10"/><path d="M2 19h20"/><path d="M9 22v-4h6v4"/></svg>
+        </div>
+        <h3 data-i18n="feat1_title">Chambres Climatisées</h3>
+        <p data-i18n="feat1_desc">Lit 3 places, WiFi, mini-frigo et salle de bain privée dans nos suites premium</p>
+      </div>
+      <div class="feature-card fade-in fade-in-delay-2">
+        <div class="feature-icon-wrap icon-red">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E53935" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <h3 data-i18n="feat2_title">Restaurant & Bar</h3>
+        <p data-i18n="feat2_desc">Cuisine locale et internationale · Bières à partir de 500 FCFA · Repas 1 000–4 500 FCFA</p>
+      </div>
+      <div class="feature-card fade-in fade-in-delay-3">
+        <div class="feature-icon-wrap icon-yellow">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h3 data-i18n="feat3_title">Salle d'Événements</h3>
+        <p data-i18n="feat3_desc">80 à 100 places · Réunions, conférences, réceptions · Espace extérieur disponible</p>
+      </div>
+      <div class="feature-card fade-in fade-in-delay-4">
+        <div class="feature-icon-wrap icon-green">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3 data-i18n="feat4_title">Parking Sécurisé</h3>
+        <p data-i18n="feat4_desc">Garage couvert pour vos véhicules · Espace vert aménagé autour de l'établissement</p>
+      </div>
+      <div class="feature-card fade-in fade-in-delay-1">
+        <div class="feature-icon-wrap icon-blue">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1565C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 data-i18n="feat5_title">Chambres Ventilées</h3>
+        <p data-i18n="feat5_desc">Fraîcheur naturelle toute la nuit · Confort accessible à partir de 8 000 FCFA/nuit</p>
+      </div>
+      <div class="feature-card fade-in fade-in-delay-2">
+        <div class="feature-icon-wrap icon-yellow">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+        </div>
+        <h3 data-i18n="feat6_title">WiFi Inclus</h3>
+        <p data-i18n="feat6_desc">Connexion Internet haut débit disponible dans toutes les chambres et espaces communs</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ROOMS PREVIEW ════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag tag-blue">Hébergement</span>
+      <h2 class="section-title" data-i18n="rooms_title">Nos <span>Chambres</span></h2>
+      <p class="section-desc" data-i18n="rooms_desc">Choisissez parmi 5 types de chambres adaptées à tous les budgets</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="rooms-preview-grid">
+      <!-- Chambre 1 — Climatisée Premium -->
+      <div class="room-card fade-in fade-in-delay-1">
+        <div class="room-card-img">
+          <img src="images/chambre-premium.png" alt="Chambre Climatisée Premium" loading="lazy" />
+          <span class="room-card-badge badge-clim">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="white" style="margin-right:4px;vertical-align:middle"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            Climatisée
+          </span>
+          <div class="room-card-price">
+            <div class="room-price-main">15 000 F</div>
+            <div class="room-price-sub" data-i18n="rooms_nuit">nuit</div>
+          </div>
+        </div>
+        <div class="room-card-body">
+          <div class="room-card-name" data-i18n="room_clim_prem">Climatisée Premium</div>
+          <div class="room-amenities">
+            <span class="amenity-tag">❄️ Climatisation</span>
+            <span class="amenity-tag">🛁 Chauffe-eau</span>
+            <span class="amenity-tag">🧊 Mini-frigo</span>
+            <span class="amenity-tag">👔 Placard</span>
+            <span class="amenity-tag">📶 WiFi</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <span style="font-size:0.8rem;color:var(--gray)" data-i18n="rooms_repos">Repos dès</span>
+            <span style="font-weight:700;color:var(--red);font-size:0.9rem">3 000 F / 1h</span>
+          </div>
+          <a href="chambres.html" class="btn btn-outline btn-sm" style="margin-top:14px;width:100%;justify-content:center;" data-i18n="rooms_btn">Voir le détail</a>
+        </div>
+      </div>
+
+      <!-- Chambre 2 — Climatisée Confort -->
+      <div class="room-card fade-in fade-in-delay-2">
+        <div class="room-card-img">
+          <img src="images/chambre-clim-106.png" alt="Chambre Climatisée Confort" loading="lazy" />
+          <span class="room-card-badge badge-clim">Climatisée</span>
+          <div class="room-card-price">
+            <div class="room-price-main">12 000 F</div>
+            <div class="room-price-sub" data-i18n="rooms_nuit">nuit</div>
+          </div>
+        </div>
+        <div class="room-card-body">
+          <div class="room-card-name" data-i18n="room_clim_conf">Climatisée Confort</div>
+          <div class="room-amenities">
+            <span class="amenity-tag">❄️ Climatisation</span>
+            <span class="amenity-tag">🧊 Mini-frigo</span>
+            <span class="amenity-tag">📶 WiFi</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <span style="font-size:0.8rem;color:var(--gray)" data-i18n="rooms_repos">Repos dès</span>
+            <span style="font-weight:700;color:var(--red);font-size:0.9rem">3 000 F / 1h</span>
+          </div>
+          <a href="chambres.html" class="btn btn-outline btn-sm" style="margin-top:14px;width:100%;justify-content:center;" data-i18n="rooms_btn">Voir le détail</a>
+        </div>
+      </div>
+
+      <!-- Chambre 3 — Climatisée Économique -->
+      <div class="room-card fade-in fade-in-delay-3">
+        <div class="room-card-img">
+          <img src="images/chambre-clim-eco.png" alt="Chambre Climatisée Économique" loading="lazy" />
+          <span class="room-card-badge badge-clim">Climatisée</span>
+          <div class="room-card-price">
+            <div class="room-price-main">10 000 F</div>
+            <div class="room-price-sub" data-i18n="rooms_nuit">nuit</div>
+          </div>
+        </div>
+        <div class="room-card-body">
+          <div class="room-card-name" data-i18n="room_clim_eco">Climatisée Économique</div>
+          <div class="room-amenities">
+            <span class="amenity-tag">❄️ Climatisation</span>
+            <span class="amenity-tag">📶 WiFi</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <span style="font-size:0.8rem;color:var(--gray)" data-i18n="rooms_repos">Repos dès</span>
+            <span style="font-weight:700;color:var(--red);font-size:0.9rem">3 000 F / 1h</span>
+          </div>
+          <a href="chambres.html" class="btn btn-outline btn-sm" style="margin-top:14px;width:100%;justify-content:center;" data-i18n="rooms_btn">Voir le détail</a>
+        </div>
+      </div>
+
+      <!-- Chambre 4 — Ventilée Confort -->
+      <div class="room-card fade-in fade-in-delay-1">
+        <div class="room-card-img">
+          <img src="images/chambre-ventilee-bleue.png" alt="Chambre Ventilée Confort" loading="lazy" />
+          <span class="room-card-badge badge-vent">Ventilée</span>
+          <div class="room-card-price">
+            <div class="room-price-main">10 000 F</div>
+            <div class="room-price-sub" data-i18n="rooms_nuit">nuit</div>
+          </div>
+        </div>
+        <div class="room-card-body">
+          <div class="room-card-name" data-i18n="room_vent_conf">Ventilée Confort</div>
+          <div class="room-amenities">
+            <span class="amenity-tag">💨 Ventilation</span>
+            <span class="amenity-tag">🛁 Chauffe-eau</span>
+            <span class="amenity-tag">👔 Placard</span>
+            <span class="amenity-tag">📶 WiFi</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <span style="font-size:0.8rem;color:var(--gray)" data-i18n="rooms_repos">Repos dès</span>
+            <span style="font-weight:700;color:var(--red);font-size:0.9rem">2 500 F / 1h</span>
+          </div>
+          <a href="chambres.html" class="btn btn-outline btn-sm" style="margin-top:14px;width:100%;justify-content:center;" data-i18n="rooms_btn">Voir le détail</a>
+        </div>
+      </div>
+
+      <!-- Chambre 5 — Ventilée Standard -->
+      <div class="room-card fade-in fade-in-delay-2">
+        <div class="room-card-img">
+          <img src="images/chambre-ventilee-verte.png" alt="Chambre Ventilée Standard" loading="lazy" />
+          <span class="room-card-badge badge-vent">Ventilée</span>
+          <div class="room-card-price">
+            <div class="room-price-main">8 000 F</div>
+            <div class="room-price-sub" data-i18n="rooms_nuit">nuit</div>
+          </div>
+        </div>
+        <div class="room-card-body">
+          <div class="room-card-name" data-i18n="room_vent_std">Ventilée Standard</div>
+          <div class="room-amenities">
+            <span class="amenity-tag">💨 Ventilation</span>
+            <span class="amenity-tag">👔 Placard</span>
+            <span class="amenity-tag">📶 WiFi</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <span style="font-size:0.8rem;color:var(--gray)" data-i18n="rooms_repos">Repos dès</span>
+            <span style="font-weight:700;color:var(--red);font-size:0.9rem">2 500 F / 1h</span>
+          </div>
+          <a href="chambres.html" class="btn btn-outline btn-sm" style="margin-top:14px;width:100%;justify-content:center;" data-i18n="rooms_btn">Voir le détail</a>
+        </div>
+      </div>
+
+      <!-- CTA Card -->
+      <div class="fade-in fade-in-delay-3" style="background:linear-gradient(135deg,var(--blue),#0D47A1);border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;text-align:center;min-height:340px;">
+        <div style="font-size:3rem;margin-bottom:16px;">🏨</div>
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--white);margin-bottom:12px;">Besoin d'aide pour choisir ?</h3>
+        <p style="color:rgba(255,255,255,0.75);font-size:0.875rem;margin-bottom:24px;line-height:1.6">Contactez-nous sur WhatsApp, nous vous guidons vers la chambre idéale</p>
+        <a href="https://wa.me/22891003632" target="_blank" class="btn btn-yellow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;" class="fade-in">
+      <a href="chambres.html" class="btn btn-primary btn-lg" data-i18n="rooms_view_all">Voir toutes les chambres</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY ══════════════════════════════ -->
+<section class="section" style="background:var(--cream);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag tag-green">Photos</span>
+      <h2 class="section-title" data-i18n="gallery_title">Notre <span>Établissement</span></h2>
+      <p class="section-desc" data-i18n="gallery_desc">Découvrez nos espaces en images</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="gallery-grid fade-in">
+      <div class="gallery-item span-2">
+        <img src="images/facade.png" alt="Façade Hôtel Résidence Majesté" loading="lazy" />
+        <div class="gallery-overlay"><span>Façade principale</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/couloir.png" alt="Couloir chambres" loading="lazy" />
+        <div class="gallery-overlay"><span>Couloir des chambres</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/salle-reunion-1.png" alt="Salle de réunion" loading="lazy" />
+        <div class="gallery-overlay"><span>Salle de réunion</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/jardin.png" alt="Jardin et garage" loading="lazy" />
+        <div class="gallery-overlay"><span>Jardin & Parking</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/espace-exterieur.png" alt="Espace extérieur" loading="lazy" />
+        <div class="gallery-overlay"><span>Espace événementiel</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/salle-bain-premium.png" alt="Salle de bain" loading="lazy" />
+        <div class="gallery-overlay"><span>Salle de bain</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/escalier.png" alt="Escalier" loading="lazy" />
+        <div class="gallery-overlay"><span>Escalier moderne</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROMO BANNER ═════════════════════════ -->
+<section class="section-sm">
+  <div class="container">
+    <div class="promo-banner fade-in">
+      <div class="promo-text">
+        <h2 data-i18n="promo_title">Célébrez vos événements chez Majesté !</h2>
+        <p data-i18n="promo_desc">Salle climatisée 80–100 places · Espace extérieur aéré · Sur devis personnalisé</p>
+      </div>
+      <div class="promo-actions">
+        <a href="contact.html" class="btn btn-yellow" data-i18n="promo_btn1">Demander un devis</a>
+        <a href="tel:+22891003632" class="btn btn-white" data-i18n="promo_btn2">Appeler maintenant</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ══════════════════════════════ -->
+<section class="section" style="background:var(--cream);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag tag-yellow">Commodités</span>
+      <h2 class="section-title" data-i18n="services_title">Services & <span>Commodités</span></h2>
+      <p class="section-desc" data-i18n="services_desc">Tout ce qui rend votre séjour exceptionnel</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card blue fade-in fade-in-delay-1">
+        <span class="service-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1565C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        </span>
+        <h3>Hébergement Premium</h3>
+        <p>5 types de chambres climatisées ou ventilées, disponibles à la nuit ou au repos, avec WiFi inclus dans chaque chambre.</p>
+      </div>
+      <div class="service-card red fade-in fade-in-delay-2">
+        <span class="service-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E53935" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/></svg>
+        </span>
+        <h3>Restaurant & Bar</h3>
+        <p>Savourez nos plats à partir de 1 000 FCFA et rafraîchissez-vous au bar avec nos boissons à partir de 500 FCFA.</p>
+      </div>
+      <div class="service-card yellow fade-in fade-in-delay-3">
+        <span class="service-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </span>
+        <h3>Salle Polyvalente</h3>
+        <p>Salle climatisée 80–100 places pour vos réunions, conférences et réceptions, avec espace extérieur aéré.</p>
+      </div>
+      <div class="service-card green fade-in fade-in-delay-4">
+        <span class="service-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </span>
+        <h3>Parking & Sécurité</h3>
+        <p>Garage couvert sécurisé pour votre véhicule. Cadre paisible avec jardin verdoyant pour votre tranquillité.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="images/logo.jpg" alt="Logo Majesté" />
+          <div class="footer-logo-text">
+            <div class="footer-logo-name">Majesté</div>
+            <div class="footer-logo-sub">Hôtel · Résidence</div>
+          </div>
+        </div>
+        <p data-i18n="footer_about">Votre havre de confort et d'élégance à Lomé. Chambres, restaurant, bar et salle d'événements — tout en un.</p>
+        <div class="footer-social">
+          <a href="tel:+22891003632" title="Appeler">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.61a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
+          </a>
+          <a href="https://wa.me/22891003632" target="_blank" title="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- Navigation -->
+      <div class="footer-col">
+        <h4 data-i18n="footer_nav">Navigation</h4>
+        <ul>
+          <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+          <li><a href="chambres.html" data-i18n="nav_rooms">Chambres</a></li>
+          <li><a href="restaurant.html" data-i18n="nav_restaurant">Restaurant & Bar</a></li>
+          <li><a href="evenements.html" data-i18n="nav_events">Salle & Événements</a></li>
+          <li><a href="reservation.html" data-i18n="nav_booking">Réservation</a></li>
+          <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </div>
+      <!-- Services -->
+      <div class="footer-col">
+        <h4 data-i18n="footer_services">Services</h4>
+        <ul>
+          <li><a href="chambres.html" data-i18n="footer_srv1">Hébergement</a></li>
+          <li><a href="restaurant.html" data-i18n="footer_srv2">Restaurant & Bar</a></li>
+          <li><a href="evenements.html" data-i18n="footer_srv3">Salles d'événements</a></li>
+          <li><a href="index.html" data-i18n="footer_srv4">Parking sécurisé</a></li>
+          <li><a href="index.html" data-i18n="footer_srv5">WiFi gratuit</a></li>
+        </ul>
+      </div>
+      <!-- Contact -->
+      <div class="footer-col">
+        <h4 data-i18n="footer_contact">Contact</h4>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Adidogomé Ségbé Akato, non loin de la Pharmacie Dodji, Lomé, Togo</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.61a16 16 0 0 0 6 6z"/></svg>
+          <div>
+            <a href="tel:+22891003632">+228 91 00 36 32</a><br />
+            <a href="tel:+22899515538">+228 99 51 55 38</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Ouvert 24h/24 · 7j/7</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><span data-i18n="footer_copy">© 2026 Hôtel Résidence Majesté. Fait avec</span> <span>♥</span> <span data-i18n="footer_by">par Dev.zak</span></p>
+      <span class="footer-badge">Adidogomé, Lomé — Togo 🇹🇬</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<a href="https://wa.me/22891003632" class="whatsapp-float" target="_blank" title="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  <span class="whatsapp-float-tooltip" data-i18n="whatsapp_tip">Discuter sur WhatsApp</span>
+</a>
+<button class="back-to-top" aria-label="Retour en haut">↑</button>
+
+<!-- TOAST -->
+<div class="toast">
+  <span class="toast-icon">🏨</span>
+  <span class="toast-msg">Bienvenue à l'Hôtel Résidence Majesté !</span>
+  <span class="toast-close">✕</span>
+</div>
+
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/scene.js"></script>
+<script src="js/loader.js"></script>
+</body>
+</html>

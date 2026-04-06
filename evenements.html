@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Salle d'événements Hôtel Résidence Majesté — Lomé. Réunions, conférences, réceptions jusqu'à 100 personnes. Espace climatisé et espace extérieur aéré. Sur devis." />
+  <title>Salle & Événements — Hôtel Résidence Majesté</title>
+  <link rel="icon" type="image/png" href="images/logo.jpg" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, #1A237E 0%, #283593 50%, #3949AB 100%);
+      padding: calc(var(--nav-h) + 56px) 0 56px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content:''; position:absolute; top:-60px; right:-80px;
+      width:380px; height:380px;
+      background:rgba(249,168,37,0.1); border-radius:50%;
+    }
+    .page-hero::after {
+      content:''; position:absolute; bottom:-80px; left:5%;
+      width:280px; height:280px;
+      background:rgba(255,255,255,0.05); border-radius:50%;
+    }
+    .page-hero-inner { position:relative; z-index:1; }
+    .page-hero-breadcrumb {
+      display:flex; align-items:center; gap:8px;
+      color:rgba(255,255,255,0.65); font-size:0.82rem; margin-bottom:16px;
+    }
+    .page-hero-breadcrumb a { color:rgba(255,255,255,0.65); transition:color var(--transition); }
+    .page-hero-breadcrumb a:hover { color:var(--yellow); }
+    .page-hero-breadcrumb span { color:var(--yellow); }
+    .page-hero h1 {
+      font-family:var(--font-display);
+      font-size:clamp(2rem,5vw,3.2rem); font-weight:900;
+      color:var(--white); line-height:1.15; margin-bottom:12px;
+    }
+    .page-hero h1 em { font-style:normal; color:var(--yellow); font-family:var(--font-script); font-size:1.15em; }
+    .page-hero p { color:rgba(255,255,255,0.78); font-size:1rem; max-width:520px; line-height:1.6; }
+    .page-hero-badges { display:flex; gap:10px; flex-wrap:wrap; margin-top:20px; }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:6px;
+      background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.25);
+      border-radius:100px; padding:7px 14px;
+      color:var(--white); font-size:0.78rem; font-weight:600;
+    }
+
+    /* ── SPACES CARDS ── */
+    .spaces-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .space-card {
+      border-radius:20px; overflow:hidden;
+      box-shadow:var(--shadow-lg); position:relative;
+    }
+    .space-card-img { position:relative; height:340px; }
+    .space-card-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; }
+    .space-card:hover .space-card-img img { transform:scale(1.05); }
+    .space-card-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(26,26,46,0.95) 0%, rgba(26,26,46,0.2) 60%, transparent 100%);
+    }
+    .space-card-content {
+      position:absolute; bottom:0; left:0; right:0;
+      padding:28px;
+    }
+    .space-tag {
+      display:inline-block;
+      padding:5px 12px; border-radius:100px;
+      font-size:0.72rem; font-weight:700;
+      text-transform:uppercase; letter-spacing:0.08em;
+      margin-bottom:10px;
+    }
+    .space-card-content h3 {
+      font-family:var(--font-display); font-size:1.4rem;
+      font-weight:800; color:var(--white); margin-bottom:8px;
+    }
+    .space-card-content p { color:rgba(255,255,255,0.75); font-size:0.875rem; line-height:1.5; margin-bottom:16px; }
+    .space-meta { display:flex; gap:16px; flex-wrap:wrap; }
+    .space-meta-item {
+      display:flex; align-items:center; gap:6px;
+      color:rgba(255,255,255,0.85); font-size:0.8rem; font-weight:600;
+    }
+
+    /* ── FEATURES LIST ── */
+    .event-features { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+    .event-feature-item {
+      display:flex; gap:14px; align-items:flex-start;
+      padding:20px; border-radius:14px;
+      background:var(--white); border:1px solid var(--border);
+      transition:all var(--transition);
+    }
+    .event-feature-item:hover { border-color:var(--blue); box-shadow:var(--shadow); transform:translateY(-3px); }
+    .event-feature-icon {
+      width:44px; height:44px; border-radius:12px; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center; font-size:1.2rem;
+    }
+    .event-feature-text strong { display:block; font-size:0.9rem; font-weight:700; color:var(--dark); margin-bottom:4px; }
+    .event-feature-text span { font-size:0.8rem; color:var(--gray); line-height:1.5; }
+
+    /* ── DEVIS FORM ── */
+    .devis-section {
+      background:linear-gradient(135deg,var(--blue) 0%,#1A237E 100%);
+      border-radius:24px; overflow:hidden;
+      display:grid; grid-template-columns:1fr 1fr;
+    }
+    .devis-info { padding:48px 40px; }
+    .devis-info h2 {
+      font-family:var(--font-display); font-size:clamp(1.5rem,3vw,2.2rem);
+      font-weight:800; color:var(--white); margin-bottom:14px;
+    }
+    .devis-info p { color:rgba(255,255,255,0.75); line-height:1.75; font-size:0.9rem; margin-bottom:24px; }
+    .devis-checklist { display:flex; flex-direction:column; gap:10px; }
+    .devis-check-item {
+      display:flex; align-items:center; gap:10px;
+      color:rgba(255,255,255,0.85); font-size:0.875rem;
+    }
+    .devis-check-item svg { flex-shrink:0; }
+
+    .devis-form-side {
+      background:var(--white); padding:40px;
+      display:flex; flex-direction:column; justify-content:center;
+    }
+    .devis-form-side h3 {
+      font-family:var(--font-display); font-size:1.3rem;
+      font-weight:700; color:var(--dark); margin-bottom:20px;
+    }
+    .form-group { margin-bottom:14px; }
+    .form-group label {
+      display:block; font-size:0.8rem; font-weight:600;
+      color:var(--gray); margin-bottom:6px; text-transform:uppercase; letter-spacing:0.06em;
+    }
+    .form-control {
+      width:100%; padding:12px 14px;
+      border:2px solid var(--border); border-radius:10px;
+      font-family:var(--font-body); font-size:0.9rem; color:var(--dark);
+      transition:border-color var(--transition); outline:none;
+      background:var(--white);
+    }
+    .form-control:focus { border-color:var(--blue); }
+    select.form-control { cursor:pointer; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .btn-submit {
+      width:100%; padding:14px;
+      background:var(--blue); color:var(--white);
+      border-radius:12px; font-weight:700; font-size:0.95rem;
+      border:none; cursor:pointer;
+      transition:all var(--transition); margin-top:4px;
+      display:flex; align-items:center; justify-content:center; gap:8px;
+    }
+    .btn-submit:hover { background:var(--blue-light); transform:translateY(-1px); }
+
+    /* ── OCCASIONS ── */
+    .occasions-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px; }
+    .occasion-item {
+      text-align:center; padding:28px 16px;
+      border-radius:16px;
+      transition:all var(--transition); cursor:default;
+    }
+    .occasion-item:hover { transform:translateY(-5px); box-shadow:var(--shadow); }
+    .occasion-icon { font-size:2.4rem; margin-bottom:12px; display:block; }
+    .occasion-item h4 { font-family:var(--font-display); font-size:0.9rem; font-weight:700; color:var(--dark); }
+
+    /* ── GALLERY ROW ── */
+    .events-gallery { display:grid; grid-template-columns:2fr 1fr 1fr; gap:12px; height:320px; }
+    .events-gallery > div { border-radius:14px; overflow:hidden; }
+    .events-gallery img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; }
+    .events-gallery > div:hover img { transform:scale(1.05); }
+
+    @media(max-width:900px){
+      .spaces-grid { grid-template-columns:1fr; }
+      .space-card-img { height:240px; }
+      .devis-section { grid-template-columns:1fr; }
+      .devis-info { padding:28px 20px; }
+      .devis-form-side { padding:24px 20px; }
+      .events-gallery { grid-template-columns:1fr 1fr; height:auto; }
+      .events-gallery > div { height:160px; }
+    }
+    @media(max-width:640px){
+      .form-row { grid-template-columns:1fr; }
+      .events-gallery { grid-template-columns:1fr; }
+      .events-gallery > div { height:200px; }
+      .occasions-grid { grid-template-columns:repeat(2,1fr); }
+      .event-features { grid-template-columns:1fr; }
+      .space-card-content h3 { font-size:1.1rem; }
+    }
+    @media(max-width:380px){
+      .occasions-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="page-loader">
+  <img src="images/logo.jpg" alt="Majesté" class="loader-logo" />
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+<div class="scroll-progress"></div>
+<div class="page-transition"></div>
+
+<!-- ══ NAV ══ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.jpg" alt="Logo" />
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Majesté</span>
+        <span class="nav-logo-sub">Hôtel · Résidence</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="chambres.html">Chambres</a></li>
+      <li><a href="restaurant.html">Restaurant & Bar</a></li>
+      <li><a href="evenements.html" class="active">Salle & Événements</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="reservation.html" class="nav-reserve">Réserver</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <a href="index.html">Accueil</a>
+  <a href="chambres.html">Chambres</a>
+  <a href="restaurant.html">Restaurant & Bar</a>
+  <a href="evenements.html">Salle & Événements</a>
+  <a href="contact.html">Contact</a>
+  <a href="reservation.html" class="nav-reserve-mobile">Réserver</a>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="page-hero-breadcrumb">
+      <a href="index.html">Accueil</a>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>Salle & Événements</span>
+    </div>
+    <h1>Salle & <em>Événements</em></h1>
+    <p>Deux espaces polyvalents pour vos réunions, conférences, réceptions et célébrations — jusqu'à 100 personnes, sur devis personnalisé.</p>
+    <div class="page-hero-badges">
+      <span class="hero-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        80 à 100 places
+      </span>
+      <span class="hero-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Salle climatisée
+      </span>
+      <span class="hero-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        Sur devis
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SPACES ══ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag tag-blue">Nos Espaces</span>
+      <h2 class="section-title">Deux espaces pour <span>tous vos événements</span></h2>
+      <p class="section-desc">Salle intérieure climatisée ou espace extérieur aéré — choisissez selon votre occasion</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="spaces-grid fade-in">
+      <!-- Salle intérieure -->
+      <div class="space-card">
+        <div class="space-card-img">
+          <img src="images/salle-reunion-1.png" alt="Salle de réunion intérieure" loading="lazy" />
+          <div class="space-card-overlay"></div>
+        </div>
+        <div class="space-card-content">
+          <span class="space-tag" style="background:var(--blue);color:white;">❄️ Climatisée</span>
+          <h3>Salle de Réunion &amp; Conférence</h3>
+          <p>Salle intérieure entièrement climatisée, idéale pour réunions professionnelles, conférences et événements privés.</p>
+          <div class="space-meta">
+            <div class="space-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              80–100 places
+            </div>
+            <div class="space-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Disponible 7j/7
+            </div>
+            <div class="space-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Sur devis
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Espace extérieur -->
+      <div class="space-card">
+        <div class="space-card-img">
+          <img src="images/espace-exterieur.png" alt="Espace extérieur événementiel" loading="lazy" />
+          <div class="space-card-overlay"></div>
+        </div>
+        <div class="space-card-content">
+          <span class="space-tag" style="background:var(--green);color:white;">🌿 Extérieur</span>
+          <h3>Espace Événementiel Aéré</h3>
+          <p>Grand espace extérieur avec scène intégrée, parfait pour réceptions, célébrations et soirées en plein air dans un cadre verdoyant.</p>
+          <div class="space-meta">
+            <div class="space-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              Grande capacité
+            </div>
+            <div class="space-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              Scène incluse
+            </div>
+            <div class="space-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Sur devis
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<section class="section-sm" style="background:var(--cream);">
+  <div class="container">
+    <div class="events-gallery fade-in">
+      <div>
+        <img src="images/salle-reunion-2.png" alt="Salle événements Majesté" loading="lazy" />
+      </div>
+      <div>
+        <img src="images/espace-exterieur.png" alt="Espace extérieur" loading="lazy" />
+      </div>
+      <div>
+        <img src="images/jardin.png" alt="Jardin Majesté" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURES ══ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag tag-yellow">Équipements</span>
+      <h2 class="section-title">Ce qui est <span>inclus</span></h2>
+      <p class="section-desc">Tout ce dont vous avez besoin pour un événement réussi</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="event-features fade-in">
+      <div class="event-feature-item fade-in-delay-1">
+        <div class="event-feature-icon" style="background:var(--blue-pale);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+        </div>
+        <div class="event-feature-text">
+          <strong>Climatisation</strong>
+          <span>Salle intérieure entièrement climatisée pour votre confort tout au long de l'événement</span>
+        </div>
+      </div>
+      <div class="event-feature-item fade-in-delay-2">
+        <div class="event-feature-icon" style="background:var(--yellow-light);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+        </div>
+        <div class="event-feature-text">
+          <strong>Éclairage adapté</strong>
+          <span>Plafond décoratif avec éclairage intégré pour une ambiance soignée et accueillante</span>
+        </div>
+      </div>
+      <div class="event-feature-item fade-in-delay-3">
+        <div class="event-feature-icon" style="background:var(--green-light);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="event-feature-text">
+          <strong>Sonorisation disponible</strong>
+          <span>Équipement sonore disponible pour conférences, présentations et événements</span>
+        </div>
+      </div>
+      <div class="event-feature-item fade-in-delay-4">
+        <div class="event-feature-icon" style="background:var(--red-light);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="event-feature-text">
+          <strong>80 à 100 places</strong>
+          <span>Capacité suffisante pour vos événements professionnels ou familiaux</span>
+        </div>
+      </div>
+      <div class="event-feature-item fade-in-delay-1">
+        <div class="event-feature-icon" style="background:var(--blue-pale);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+        </div>
+        <div class="event-feature-text">
+          <strong>Restaurant intégré</strong>
+          <span>Service de restauration et bar disponible pour vos invités pendant et après l'événement</span>
+        </div>
+      </div>
+      <div class="event-feature-item fade-in-delay-2">
+        <div class="event-feature-icon" style="background:var(--green-light);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="event-feature-text">
+          <strong>Parking disponible</strong>
+          <span>Garage couvert et espace de stationnement pour vos invités</span>
+        </div>
+      </div>
+      <div class="event-feature-item fade-in-delay-3">
+        <div class="event-feature-icon" style="background:var(--yellow-light);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="event-feature-text">
+          <strong>Espace scène extérieur</strong>
+          <span>Scène aménagée dans le jardin pour concerts, animations et spectacles</span>
+        </div>
+      </div>
+      <div class="event-feature-item fade-in-delay-4">
+        <div class="event-feature-icon" style="background:var(--blue-pale);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+        </div>
+        <div class="event-feature-text">
+          <strong>WiFi disponible</strong>
+          <span>Connexion internet pour vos présentations et conférences</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ OCCASIONS ══ -->
+<section class="section" style="background:var(--cream);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag tag-green">Occasions</span>
+      <h2 class="section-title">Pour <span>toutes vos occasions</span></h2>
+      <p class="section-desc">Nos espaces s'adaptent à tous types d'événements</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="occasions-grid fade-in">
+      <div class="occasion-item" style="background:var(--blue-pale);">
+        <span class="occasion-icon">💼</span>
+        <h4>Réunion d'affaires</h4>
+      </div>
+      <div class="occasion-item" style="background:var(--red-light);">
+        <span class="occasion-icon">🎓</span>
+        <h4>Conférence</h4>
+      </div>
+      <div class="occasion-item" style="background:var(--yellow-light);">
+        <span class="occasion-icon">🎉</span>
+        <h4>Réception fête</h4>
+      </div>
+      <div class="occasion-item" style="background:var(--green-light);">
+        <span class="occasion-icon">💍</span>
+        <h4>Cérémonie</h4>
+      </div>
+      <div class="occasion-item" style="background:var(--blue-pale);">
+        <span class="occasion-icon">🎂</span>
+        <h4>Anniversaire</h4>
+      </div>
+      <div class="occasion-item" style="background:var(--red-light);">
+        <span class="occasion-icon">🏫</span>
+        <h4>Formation</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DEVIS ══ -->
+<section class="section">
+  <div class="container">
+    <div class="devis-section fade-in">
+      <div class="devis-info">
+        <h2>Demandez votre devis personnalisé</h2>
+        <p>Chaque événement est unique. Contactez-nous pour obtenir un tarif adapté à votre projet — nous vous répondons rapidement sur WhatsApp ou par téléphone.</p>
+        <div class="devis-checklist">
+          <div class="devis-check-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Tarif sur mesure selon la durée et la configuration
+          </div>
+          <div class="devis-check-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Réponse rapide sous 24h
+          </div>
+          <div class="devis-check-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Service de restauration disponible en option
+          </div>
+          <div class="devis-check-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Espace intérieur ou extérieur selon vos besoins
+          </div>
+          <div class="devis-check-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Événements autorisés dans la salle uniquement
+          </div>
+        </div>
+      </div>
+      <div class="devis-form-side">
+        <h3>Remplissez ce formulaire rapide</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Votre prénom</label>
+            <input type="text" class="form-control" placeholder="Ex : Kokou" id="devis-nom" />
+          </div>
+          <div class="form-group">
+            <label>Téléphone / WhatsApp</label>
+            <input type="tel" class="form-control" placeholder="+228 XX XX XX XX" id="devis-tel" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Type d'événement</label>
+          <select class="form-control" id="devis-type">
+            <option value="">-- Sélectionnez --</option>
+            <option>Réunion d'affaires</option>
+            <option>Conférence / Formation</option>
+            <option>Réception / Fête</option>
+            <option>Anniversaire</option>
+            <option>Cérémonie</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date souhaitée</label>
+            <input type="date" class="form-control" id="devis-date" />
+          </div>
+          <div class="form-group">
+            <label>Nombre de personnes</label>
+            <select class="form-control" id="devis-nb">
+              <option>Moins de 20</option>
+              <option>20 – 50</option>
+              <option>50 – 80</option>
+              <option>80 – 100</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Espace souhaité</label>
+          <select class="form-control" id="devis-espace">
+            <option>Salle intérieure climatisée</option>
+            <option>Espace extérieur aéré</option>
+            <option>Les deux espaces</option>
+          </select>
+        </div>
+        <button class="btn-submit" onclick="envoyerDevis()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413z"/></svg>
+          Envoyer la demande sur WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="section-sm" style="background:var(--blue);">
+  <div class="container" style="text-align:center;">
+    <h2 style="font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);color:var(--white);margin-bottom:12px;">Un projet d'événement en tête ?</h2>
+    <p style="color:rgba(255,255,255,0.75);margin-bottom:28px;">Contactez-nous directement — réponse rapide garantie</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://wa.me/22891003632?text=Bonjour%2C%20je%20souhaite%20organiser%20un%20événement%20dans%20votre%20salle." target="_blank" class="btn btn-yellow btn-lg">WhatsApp</a>
+      <a href="tel:+22891003632" class="btn btn-white btn-lg">+228 91 00 36 32</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="images/logo.jpg" alt="Logo Majesté" />
+          <div class="footer-logo-text">
+            <div class="footer-logo-name">Majesté</div>
+            <div class="footer-logo-sub">Hôtel · Résidence</div>
+          </div>
+        </div>
+        <p>Votre havre de confort et d'élégance à Lomé. Chambres, restaurant, bar et salle d'événements — tout en un.</p>
+        <div class="footer-social">
+          <a href="tel:+22891003632"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2z"/></svg></a>
+          <a href="https://wa.me/22891003632" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="chambres.html">Chambres</a></li>
+          <li><a href="restaurant.html">Restaurant & Bar</a></li>
+          <li><a href="evenements.html">Salle & Événements</a></li>
+          <li><a href="reservation.html">Réservation</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Événements</h4>
+        <ul>
+          <li><a href="#">Réunion d'affaires</a></li>
+          <li><a href="#">Conférence / Formation</a></li>
+          <li><a href="#">Réception / Fête</a></li>
+          <li><a href="#">Cérémonie</a></li>
+          <li><a href="#">Anniversaire</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Adidogomé Ségbé Akato, Lomé, Togo</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2z"/></svg>
+          <div><a href="tel:+22891003632">+228 91 00 36 32</a><br /><a href="tel:+22899515538">+228 99 51 55 38</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Hôtel Résidence Majesté. Fait avec <span>♥</span> par Dev.zak</p>
+      <span class="footer-badge">Lomé — Togo 🇹🇬</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/22891003632" class="whatsapp-float" target="_blank">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+<button class="back-to-top">↑</button>
+<div class="toast"><span class="toast-icon"></span><span class="toast-msg"></span><span class="toast-close">✕</span></div>
+
+<script src="js/main.js"></script>
+<script src="js/loader.js"></script>
+<script>
+function envoyerDevis() {
+  const nom    = document.getElementById('devis-nom').value.trim();
+  const tel    = document.getElementById('devis-tel').value.trim();
+  const type   = document.getElementById('devis-type').value;
+  const date   = document.getElementById('devis-date').value;
+  const nb     = document.getElementById('devis-nb').value;
+  const espace = document.getElementById('devis-espace').value;
+
+  if (!nom || !tel || !type) {
+    alert('Veuillez remplir au moins votre prénom, téléphone et type d\'événement.');
+    return;
+  }
+
+  const dateStr = date ? new Date(date).toLocaleDateString('fr-FR', { day:'2-digit', month:'long', year:'numeric' }) : 'À définir';
+
+  const msg = `🏨 *DEMANDE DE DEVIS — Hôtel Résidence Majesté*
+──────────────────────────
+👤 Nom : ${nom}
+📞 Téléphone : ${tel}
+🎉 Type d'événement : ${type}
+📅 Date souhaitée : ${dateStr}
+👥 Nombre de personnes : ${nb}
+🏛️ Espace souhaité : ${espace}
+──────────────────────────
+Merci de me contacter pour un devis personnalisé.`;
+
+  const url = 'https://wa.me/22891003632?text=' + encodeURIComponent(msg);
+  window.open(url, '_blank');
+}
+</script>
+</body>
+</html>
