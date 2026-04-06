@@ -1,41 +1,132 @@
 /* ============================================
    HÔTEL RÉSIDENCE MAJESTÉ — bot.css
-   Chatbot reservation — mobile-first fixes
+   Chatbot modal styles + mobile fixes
    ============================================ */
 
-/* Ensure reservation page fills viewport correctly on all devices */
-@media (max-width: 900px) {
-  .reservation-page {
-    grid-template-columns: 1fr !important;
-    min-height: auto !important;
-  }
-  .res-info-panel {
-    position: relative !important;
-    height: auto !important;
-    top: 0 !important;
-    padding: 28px 20px !important;
-  }
-  .res-bot-panel {
-    position: relative !important;
-    height: 75vh !important;
-    min-height: 520px;
-  }
-}
+/* ── BOT MESSAGE BUBBLES ── */
+@keyframes bmIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
 
-@media (max-width: 480px) {
-  .res-info-panel { padding: 20px 16px !important; }
-  .res-info-title  { font-size: 1.5rem !important; }
-  .res-bot-panel   { height: 72vh !important; min-height: 480px; }
-  .bot-messages    { padding: 12px 10px !important; gap: 8px !important; }
-  .bot-input-area  { padding: 10px 10px !important; }
-  .msg-bubble      { font-size: 0.82rem !important; padding: 9px 12px !important; }
-  .choice-btn      { font-size: 0.78rem !important; padding: 8px 12px !important; }
-  .summary-card    { font-size: 0.78rem !important; padding: 14px !important; }
-  .whatsapp-confirm-btn { font-size: 0.875rem !important; padding: 12px !important; }
+.bm-msg {
+  display: flex; gap: 8px; max-width: 100%;
+  animation: bmIn 0.3s ease;
 }
+.bm-msg.bm-bot  { align-items: flex-end; }
+.bm-msg.bm-user { flex-direction: row-reverse; }
 
-/* Fix choice buttons wrapping nicely on mobile */
+.bm-avatar {
+  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--blue), #0D47A1);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 2px;
+}
+.bm-avatar svg { width: 13px; height: 13px; color: white; }
+
+.bm-bubble {
+  max-width: 80%; padding: 10px 14px;
+  border-radius: 16px; font-size: 0.875rem; line-height: 1.55;
+}
+.bm-bubble-bot  { background: var(--gray-light); color: var(--dark); border-bottom-left-radius: 4px; }
+.bm-bubble-user { background: var(--blue); color: white; border-bottom-right-radius: 4px; }
+.bm-time { font-size: 0.65rem; color: var(--gray); margin-top: 3px; }
+
+/* Typing dots */
+.bm-typing {
+  background: var(--gray-light); padding: 12px 16px;
+  border-radius: 16px; border-bottom-left-radius: 4px;
+  display: flex; gap: 4px; align-items: center;
+}
+.bm-typing span {
+  width: 6px; height: 6px; background: var(--gray);
+  border-radius: 50%; animation: bmTyping 1.2s ease-in-out infinite;
+}
+.bm-typing span:nth-child(2) { animation-delay: 0.2s; }
+.bm-typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bmTyping { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
+
+/* ── CHOICE BUTTONS ── */
+.bm-choices-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.bm-choice-btn {
+  padding: 9px 16px; border-radius: 100px;
+  border: 2px solid var(--blue); color: var(--blue);
+  font-size: 0.82rem; font-weight: 600;
+  background: white; cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-body);
+}
+.bm-choice-btn:hover, .bm-choice-btn.bm-selected { background: var(--blue); color: white; }
+.bm-choice-btn:disabled { opacity: 0.6; cursor: default; }
+
+/* ── TEXT INPUT ROW ── */
+.bm-text-row { display: flex; gap: 8px; }
+.bm-text-input {
+  flex: 1; padding: 11px 16px;
+  border: 2px solid var(--border); border-radius: 100px;
+  font-family: var(--font-body); font-size: 0.875rem; color: var(--dark);
+  outline: none; transition: border-color 0.25s ease;
+  background: var(--cream);
+}
+.bm-text-input:focus { border-color: var(--blue); background: white; }
+.bm-send-btn {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--blue); color: white; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+.bm-send-btn:hover { background: var(--blue-light); transform: scale(1.08); }
+
+/* ── SUMMARY CARD ── */
+.bm-summary-card {
+  background: white; border: 2px solid var(--blue);
+  border-radius: 14px; padding: 16px;
+  font-size: 0.82rem; max-width: 82%;
+}
+.bm-summary-title {
+  font-family: var(--font-display); font-size: 0.9rem;
+  font-weight: 700; color: var(--blue);
+  margin-bottom: 10px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.bm-summary-row {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 4px 0; gap: 8px;
+  border-bottom: 1px dashed var(--border); font-size: 0.8rem;
+}
+.bm-summary-row:last-of-type { border-bottom: none; }
+.bm-summary-row span { color: var(--gray); flex-shrink: 0; }
+.bm-summary-row strong { color: var(--dark); text-align: right; }
+.bm-summary-total {
+  margin-top: 10px; padding: 10px 12px;
+  background: var(--blue-pale); border-radius: 10px;
+}
+.bm-total-row { display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 4px; }
+.bm-total-price  { font-family: var(--font-display); font-weight: 800; font-size: 1rem; color: var(--blue); }
+.bm-acompte-price { font-weight: 700; color: var(--red); }
+
+/* ── CONFIRM BUTTONS ── */
+.bm-whatsapp-btn {
+  width: 100%; padding: 13px; background: #25D366; color: white;
+  border: none; border-radius: 12px;
+  font-family: var(--font-body); font-size: 0.9rem; font-weight: 700;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: all 0.3s ease; margin-bottom: 8px;
+}
+.bm-whatsapp-btn:hover { background: #128C7E; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,211,102,0.35); }
+.bm-restart-btn {
+  width: 100%; padding: 9px; background: var(--gray-light); color: var(--gray);
+  border: none; border-radius: 10px;
+  font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; cursor: pointer;
+  transition: all 0.25s ease;
+}
+.bm-restart-btn:hover { background: var(--border); color: var(--dark); }
+
+/* ── MOBILE MODAL FIXES ── */
+@media (max-width: 560px) {
+  .bm-bubble { font-size: 0.82rem; padding: 9px 12px; }
+  .bm-choice-btn { font-size: 0.78rem; padding: 8px 12px; }
+  .bm-summary-card { font-size: 0.78rem; padding: 12px; }
+  .bm-whatsapp-btn { font-size: 0.875rem; padding: 12px; }
+}
 @media (max-width: 380px) {
-  .choices-wrap    { gap: 6px !important; }
-  .choice-btn      { flex: 1 1 calc(50% - 6px); text-align: center; justify-content: center; }
+  .bm-choices-wrap { gap: 6px; }
+  .bm-choice-btn { flex: 1 1 calc(50% - 6px); justify-content: center; }
 }
